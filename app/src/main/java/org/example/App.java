@@ -16,7 +16,7 @@ import utils.classes.ShippingDepartment;
 import utils.classes.ShoppingCart;
 
 public class App {
-    public void getGreeting() {
+    public String getGreeting() {
         System.out.println("Determining the appropriate greeting...");
         try {
             Thread.sleep(2000); // Pause for effect
@@ -34,13 +34,14 @@ public class App {
         } else {
             greeting = "Good evening!";
         }
+        return greeting;
     
-        System.out.println("Greeting determined: " + greeting);
     }
     
 
     public static void main(String[] args) {
-        new App().getGreeting();
+   
+        System.out.println("Greeting determined: " +  new App().getGreeting());
 
         demonstrateSingletonBehavior();
 
@@ -57,56 +58,41 @@ public class App {
     private static void demonstrateSingletonBehavior() {
         System.out.println("\n---------------------------------------------------\n");
         System.out.println("Initiating Singleton Behavior Analysis...");
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        pauseForEffect(2000);
+        System.out.println("\n");
         System.out.println("Initiating AuthManager Sequence...");
-    
         AuthManager manager1 = AuthManager.getInstance();
         AuthManager manager2 = AuthManager.getInstance();
-        
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        
+        pauseForEffect(2000);
+        System.out.println("\n");
         System.out.println("Verifying Singleton Integrity...");
         System.out.println("Checking if both AuthManager instances are the same: " + (manager1 == manager2));
+        System.out.println("---------------------------------------------------");
         System.out.println("Singleton Analysis Complete.");
     }
+    
+   
+    
     
  
     private static void demonstrateShoppingCart() {
         ShoppingCart cart = new ShoppingCart();
         System.out.println("Initializing Shopping Cart...");
     
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        pauseForEffect(2000);
+
         demonstrateCreditCardPayment(cart);
     
         System.out.println("Initiating PayPal Payment...");
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        pauseForEffect(2000);
         demonstratePayPalPayment(cart);
     
         System.out.println("Shopping Cart Demonstration Complete.");
     }
     private static void demonstrateCreditCardPayment(ShoppingCart cart) {
         System.out.println("Initiating Credit Card Payment...");
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        pauseForEffect(2000);
     
         CreditCardPayment creditCardPayment = new CreditCardPayment("1234 5678 9012 3456", "John Doe", "123");
         cart.setPaymentStrategy(creditCardPayment);
@@ -116,12 +102,8 @@ public class App {
     }
     
     private static void demonstratePayPalPayment(ShoppingCart cart) {
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    
+        pauseForEffect(2000);
+
         PayPalPayment payPalPayment = new PayPalPayment("user@example.com", "password");
         cart.setPaymentStrategy(payPalPayment);
         cart.checkout(1500.0);
@@ -131,11 +113,8 @@ public class App {
     
     private static void demonstrateOrderObservers() {
         System.out.println("Initiating Order Observers...");
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+
+        pauseForEffect(2000);
     
         Order order = new Order("ORD123", 1500.0);
         InventoryManager inventoryManager = new InventoryManager();
@@ -150,11 +129,8 @@ public class App {
     
     private static void demonstratePhone() {
         System.out.println("Initiating Phone Demonstration...");
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+       
+        pauseForEffect(2000);
     
         Phone phone = new Phone("iPhone 12", 999.0);
         System.out.println("Phone Details:");
@@ -164,16 +140,21 @@ public class App {
     
     private static void demonstrateLaptop() {
         System.out.println("Initiating Laptop Demonstration...");
-        try {
-            Thread.sleep(2000); // Pause for effect
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        pauseForEffect(2000);
     
         Laptop laptop = new Laptop("Dell XPS", 1500.0);
         System.out.println("Laptop Details:");
         System.out.println(laptop.getDescription());
         System.out.println("\n-----------------------------------\n");
+    }
+
+     // Method to pause execution for a specified duration (in milliseconds)
+     private static void pauseForEffect(int milliseconds) {
+        try {
+            Thread.sleep(milliseconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
     
 }
