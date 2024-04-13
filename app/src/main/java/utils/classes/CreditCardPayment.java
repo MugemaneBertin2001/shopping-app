@@ -1,6 +1,5 @@
 package utils.classes;
 
-
 import java.util.Random;
 
 public class CreditCardPayment implements PaymentStrategy {
@@ -32,6 +31,18 @@ public class CreditCardPayment implements PaymentStrategy {
     @Override
     public String getMsg() {
         return msg;
+    }
+
+    public String getCardNumber() {
+        return cardNumber;
+    }
+
+    public String getCardholderName() {
+        return cardholderName;
+    }
+
+    public String getCvv() {
+        return cvv;
     }
 
     // Simulate the credit card payment process (for demonstration purposes)

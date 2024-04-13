@@ -4,8 +4,7 @@ public class PayPalPayment implements PaymentStrategy {
     private String email;
     private String password;
     private String msg;
-    
-    // To Complete
+
     public PayPalPayment(String email, String password) {
         this.email = email;
         this.password = password;
@@ -23,4 +22,11 @@ public class PayPalPayment implements PaymentStrategy {
         return msg;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 }

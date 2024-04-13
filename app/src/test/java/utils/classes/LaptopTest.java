@@ -1,8 +1,7 @@
-package org.example;
+package utils.classes;
 
 import org.junit.jupiter.api.Test;
 
-import utils.classes.Laptop;
 
 import static org.junit.jupiter.api.Assertions.*;
 

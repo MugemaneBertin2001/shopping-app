@@ -16,10 +16,17 @@ import utils.classes.ShippingDepartment;
 import utils.classes.ShoppingCart;
 
 public class App {
-    public String getGreeting() {
+    public void getGreeting() {
+        System.out.println("Determining the appropriate greeting...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    
         int currentHour = LocalTime.now().getHour();
         String greeting;
-
+    
         if (currentHour < 12) {
             greeting = "Good morning!";
         } else if (currentHour < 18) {
@@ -27,61 +34,146 @@ public class App {
         } else {
             greeting = "Good evening!";
         }
-
-        return greeting;
+    
+        System.out.println("Greeting determined: " + greeting);
     }
+    
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        new App().getGreeting();
+
         demonstrateSingletonBehavior();
+
         demonstrateShoppingCart();
+         
         demonstrateOrderObservers();
+      
         demonstrateLaptop();
-        demonstratePhone();
-     }
- 
-      private static void demonstrateSingletonBehavior() {
-         AuthManager manager1 = AuthManager.getInstance();
-         AuthManager manager2 = AuthManager.getInstance();
-         System.out.println("Checking if both AuthManager instances are the same: " + (manager1 == manager2));
-     }
- 
-     private static void demonstrateShoppingCart() {
-        ShoppingCart cart = new ShoppingCart();
         
-        // Credit Card Payment
+        demonstratePhone();
+    }
+    
+ 
+    private static void demonstrateSingletonBehavior() {
+        System.out.println("\n---------------------------------------------------\n");
+        System.out.println("Initiating Singleton Behavior Analysis...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println("Initiating AuthManager Sequence...");
+    
+        AuthManager manager1 = AuthManager.getInstance();
+        AuthManager manager2 = AuthManager.getInstance();
+        
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        
+        System.out.println("Verifying Singleton Integrity...");
+        System.out.println("Checking if both AuthManager instances are the same: " + (manager1 == manager2));
+        System.out.println("Singleton Analysis Complete.");
+    }
+    
+ 
+    private static void demonstrateShoppingCart() {
+        ShoppingCart cart = new ShoppingCart();
+        System.out.println("Initializing Shopping Cart...");
+    
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        demonstrateCreditCardPayment(cart);
+    
+        System.out.println("Initiating PayPal Payment...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        demonstratePayPalPayment(cart);
+    
+        System.out.println("Shopping Cart Demonstration Complete.");
+    }
+    private static void demonstrateCreditCardPayment(ShoppingCart cart) {
+        System.out.println("Initiating Credit Card Payment...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    
         CreditCardPayment creditCardPayment = new CreditCardPayment("1234 5678 9012 3456", "John Doe", "123");
         cart.setPaymentStrategy(creditCardPayment);
         cart.checkout(1500.0);
         System.out.println("Credit card payment message: " + creditCardPayment.getMsg());
-    
-        // PayPal Payment
-        PayPalPayment payPalPayment = new PayPalPayment("user@example.com", "password");
-        cart.setPaymentStrategy(payPalPayment); // Corrected: passing payPalPayment object as an argument
-        cart.checkout(1500.0);
-        System.out.println("PayPal payment message: " + payPalPayment.getMsg());
+        System.out.println("\n-----------------------------------\n");
     }
     
-     private static void demonstrateOrderObservers() {
-         Order order = new Order("ORD123", 1500.0);
-         InventoryManager inventoryManager = new InventoryManager();
-         ShippingDepartment shippingDepartment = new ShippingDepartment();
-         order.addObserver(inventoryManager);
-         order.addObserver(shippingDepartment);
-         order.notifyObservers();
-         System.out.println("Inventory Manager Message: " + inventoryManager.getLastMessage());
-         System.out.println("Shipping Department Message: " + shippingDepartment.getLastMessage());
-     }
-
-     private static void demonstratePhone() {
+    private static void demonstratePayPalPayment(ShoppingCart cart) {
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    
+        PayPalPayment payPalPayment = new PayPalPayment("user@example.com", "password");
+        cart.setPaymentStrategy(payPalPayment);
+        cart.checkout(1500.0);
+        System.out.println("PayPal payment message: " + payPalPayment.getMsg());
+        System.out.println("\n-----------------------------------\n");
+    }
+    
+    private static void demonstrateOrderObservers() {
+        System.out.println("Initiating Order Observers...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    
+        Order order = new Order("ORD123", 1500.0);
+        InventoryManager inventoryManager = new InventoryManager();
+        ShippingDepartment shippingDepartment = new ShippingDepartment();
+        order.addObserver(inventoryManager);
+        order.addObserver(shippingDepartment);
+        order.notifyObservers();
+        System.out.println("Inventory Manager Message: " + inventoryManager.getLastMessage());
+        System.out.println("Shipping Department Message: " + shippingDepartment.getLastMessage());
+        System.out.println("\n-----------------------------------\n");
+    }
+    
+    private static void demonstratePhone() {
+        System.out.println("Initiating Phone Demonstration...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    
         Phone phone = new Phone("iPhone 12", 999.0);
         System.out.println("Phone Details:");
         System.out.println(phone.getDescription());
+        System.out.println("\n-----------------------------------\n");
     }
+    
     private static void demonstrateLaptop() {
+        System.out.println("Initiating Laptop Demonstration...");
+        try {
+            Thread.sleep(2000); // Pause for effect
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    
         Laptop laptop = new Laptop("Dell XPS", 1500.0);
         System.out.println("Laptop Details:");
         System.out.println(laptop.getDescription());
+        System.out.println("\n-----------------------------------\n");
     }
-
+    
 }

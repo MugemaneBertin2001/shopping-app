@@ -1,10 +1,6 @@
-package org.example;
+package utils.classes;
 
 import org.junit.jupiter.api.Test;
-
-import utils.classes.InventoryManager;
-import utils.classes.Order;
-import utils.classes.ShippingDepartment;
 
 import static org.junit.jupiter.api.Assertions.*;
 

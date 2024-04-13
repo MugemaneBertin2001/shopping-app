@@ -1,9 +1,6 @@
-package org.example;
+package utils.classes;
 
 import org.junit.jupiter.api.Test;
-
-import utils.classes.PaymentStrategy;
-import utils.classes.ShoppingCart;
 
 import static org.junit.jupiter.api.Assertions.*;
 
