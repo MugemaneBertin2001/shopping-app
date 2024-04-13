@@ -7,11 +7,13 @@ import java.time.LocalTime;
 
 import utils.classes.AuthManager;
 import utils.classes.CreditCardPayment;
+import utils.classes.Electronicsfactory;
 import utils.classes.InventoryManager;
 import utils.classes.Laptop;
 import utils.classes.Order;
 import utils.classes.PayPalPayment;
 import utils.classes.Phone;
+import utils.classes.Product;
 import utils.classes.ShippingDepartment;
 import utils.classes.ShoppingCart;
 
@@ -48,6 +50,8 @@ public class App {
         demonstrateShoppingCart();
          
         demonstrateOrderObservers();
+
+        demonstrateProductFactory();
       
         demonstrateLaptop();
         
@@ -56,7 +60,7 @@ public class App {
     
  
     private static void demonstrateSingletonBehavior() {
-        System.out.println("\n---------------------------------------------------\n");
+        System.out.println("\n-----------------------------------\n");
         System.out.println("Initiating Singleton Behavior Analysis...");
         pauseForEffect(2000);
         System.out.println("\n");
@@ -67,7 +71,7 @@ public class App {
         System.out.println("\n");
         System.out.println("Verifying Singleton Integrity...");
         System.out.println("Checking if both AuthManager instances are the same: " + (manager1 == manager2));
-        System.out.println("---------------------------------------------------");
+        System.out.println("\n-----------------------------------\n");
         System.out.println("Singleton Analysis Complete.");
     }
     
@@ -148,6 +152,39 @@ public class App {
         System.out.println("\n-----------------------------------\n");
     }
 
+    private static void demonstrateProductFactory() {
+        System.out.println("Initiating Product Factory Sequence...");
+        pauseForEffect(2000); // Pause for effect
+    
+        System.out.println("Initiating Laptop Creation...");
+        Electronicsfactory factory = new Electronicsfactory();
+        
+        // Create a Laptop product
+        Product laptop = factory.createProduct("Laptop");
+        if (laptop != null) {
+            pauseForEffect(2000); // Pause for effect
+            System.out.println("\nCreated Laptop:");
+            System.out.println(laptop.getDescription());
+        } else {
+            System.out.println("\nFailed to create Laptop product.");
+        }
+        
+        pauseForEffect(2000); // Pause for effect
+        
+        System.out.println("\nInitiating Phone Creation...");
+        
+        // Create a Phone product
+        Product phone = factory.createProduct("Phone");
+        if (phone != null) {
+            pauseForEffect(2000); // Pause for effect
+            System.out.println("\nCreated Phone:");
+            System.out.println(phone.getDescription());
+        } else {
+            System.out.println("\nFailed to create Phone product.");
+        }
+        
+        System.out.println("Product Factory Sequence Complete.");
+    }
      // Method to pause execution for a specified duration (in milliseconds)
      private static void pauseForEffect(int milliseconds) {
         try {

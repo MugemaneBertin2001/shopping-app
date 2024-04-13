@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import java.time.LocalTime;
 import static org.junit.jupiter.api.Assertions.*;
 
-class AppTest {
+class CustomAppTest {
     @Test
     void appReturnsCorrectGreeting() {
         App app = new App();

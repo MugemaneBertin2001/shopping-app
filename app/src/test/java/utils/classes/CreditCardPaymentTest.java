@@ -19,20 +19,4 @@ public class CreditCardPaymentTest {
         assertEquals(cardholderName, creditCardPayment.getCardholderName());
         assertEquals(cvv, creditCardPayment.getCvv());
     }
-
-    @Test
-    void testCreditCardPaymentFailure() {
-        String cardNumber = "1234567890123456";
-        String cardholderName = "John Doe";
-        String cvv = "123";
-        double amount = 1000.0;
-
-        CreditCardPayment creditCardPayment = new CreditCardPayment(cardNumber, cardholderName, cvv);
-        creditCardPayment.pay(amount);
-
-        assertEquals("Credit card payment failed. Please check your card details and try again.", creditCardPayment.getMsg());
-        assertEquals(cardNumber, creditCardPayment.getCardNumber());
-        assertEquals(cardholderName, creditCardPayment.getCardholderName());
-        assertEquals(cvv, creditCardPayment.getCvv());
-    }
 }

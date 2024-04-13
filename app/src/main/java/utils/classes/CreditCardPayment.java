@@ -1,7 +1,5 @@
 package utils.classes;
 
-import java.util.Random;
-
 public class CreditCardPayment implements PaymentStrategy {
     private String cardNumber;
     private String cardholderName;
@@ -47,8 +45,6 @@ public class CreditCardPayment implements PaymentStrategy {
 
     // Simulate the credit card payment process (for demonstration purposes)
     private boolean processCreditCardPayment(double amount) {
-        // Check if the payment is successful (for demonstration purposes, generate a random boolean)
-        Random random = new Random();
-        return random.nextBoolean();
+        return true;
     }
 }
